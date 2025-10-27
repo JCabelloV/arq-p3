@@ -2,18 +2,14 @@ module instruction_memory (
   input  [7:0]  address,
   output [14:0] out
 );
-  reg [14:0] mem [0:15];  // Solo 16 posiciones
+  reg [14:0] mem [0:255];
 
   initial begin
-    $readmemb("im.dat", mem);
-  end
-
-  integer i;
-  initial begin
-    #0.1;
+    integer i;
     for (i = 0; i < 256; i = i + 1) begin
-      if (^mem[i] === 1'bx) mem[i] = 16'h0000;
+      mem[i] = 15'd0;
     end
+    $readmemb("im.dat", mem);
   end
 
   assign out = mem[address];

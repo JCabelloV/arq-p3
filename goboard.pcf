@@ -7,6 +7,12 @@ set_io led[1] 57
 set_io led[2] 59
 set_io led[3] 60
 
+# Botones
+set_io btn[0] 45
+set_io btn[1] 47
+set_io btn[2] 48
+set_io btn[3] 62
+
 # 7-Segment Display
 set_io seg[0] 3
 set_io seg[1] 4

@@ -1,9 +1,10 @@
-
 module computer (
     input clk,
-    output [7:0] alu_out_bus
+    output [7:0] alu_out_bus,
+    output [7:0] regA_out,
+    output [7:0] regB_out
 );
-  
+
   wire [7:0]  pc_out_bus;
   wire [14:0] im_out_bus;
   wire [7:0]  regA_out_bus;
@@ -13,10 +14,10 @@ module computer (
   wire [7:0] K      = im_out_bus[7:0];
 
   wire LA, LB, LP, W, mem_we;
-  wire [1:0] selA, selB, selData;  
-  wire       wbSel;                
+  wire [1:0] selA, selB, selData;
+  wire       wbSel;
   wire [3:0] alu_op;
-  
+
   wire Z, N, C, V;
   wire [3:0] status_out;
 
@@ -41,11 +42,11 @@ module computer (
     .LA(LA),
     .LB(LB),
     .LP(LP),
-    .mem_we(mem_we),   
-    .wbSel(wbSel),     
+    .mem_we(mem_we),
+    .wbSel(wbSel),
     .selA(selA),
     .selB(selB),
-    .selData(selData), 
+    .selData(selData),
     .alu_op(alu_op)
   );
 
@@ -56,7 +57,7 @@ module computer (
     .A(regA_out_bus),
     .B(regB_out_bus),
     .K(K),
-    .PC(pc_out_bus),   
+    .PC(pc_out_bus),
     .sel(selData),
     .out(dmem_addr)
   );
@@ -129,4 +130,6 @@ module computer (
       .status_out(status_out)
   );
 
+  assign regA_out = regA_out_bus;
+  assign regB_out = regB_out_bus;
 endmodule
