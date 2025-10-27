@@ -1,0 +1,21 @@
+# Clock (25 MHz)
+set_io clk 15
+
+# LEDs (para mostrar contador en binario)
+set_io led[0] 56
+set_io led[1] 57
+set_io led[2] 59
+set_io led[3] 60
+
+# 7-Segment Display
+set_io seg[0] 3
+set_io seg[1] 4
+set_io seg[2] 93
+set_io seg[3] 91
+set_io seg[4] 90
+set_io seg[5] 1
+set_io seg[6] 2
+
+# Display select
+set_io digit_sel[0] 9
+set_io digit_sel[1] 10
