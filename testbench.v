@@ -23,16 +23,17 @@ module test;
     // IMPORTANTE!! Editar con el modulo de su computador
     // ------------------------------------------------------------
     computer Comp (
-    .clk(clk)                      // Connects to the main clock signal
-);
+        .clk(clk),
+        .alu_out_bus(alu_out),
+        .regA_out(regA_out),
+        .regB_out(regB_out)
+    );
     // ------------------------------------------------------------
 
     // ------------------------------------------------------------
     // IMPORTANTE!! Editar para que la variable apunte a la salida
     // de los registros de su computador.
     // ------------------------------------------------------------
-    assign regA_out = Comp.regA.out;
-    assign regB_out = Comp.regB.out;
     // ------------------------------------------------------------
 
     initial begin
